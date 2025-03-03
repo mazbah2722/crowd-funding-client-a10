@@ -28,7 +28,7 @@ const Register = () => {
                             <input name="email" type="email" className="input" placeholder="Email" />
                             <label className="fieldset-label">Password</label>
                             <input name="password" type="password" className="input" placeholder="Password" />
-                            <div><a className="link link-hover">Forgot password?</a></div>
+                            
                             <button className="btn btn-neutral mt-4">Login</button>
                         </fieldset>
                         <p>If you have an account, please <Link to='/auth/login' className="text-red-600 font-bold">login</Link> here.</p>

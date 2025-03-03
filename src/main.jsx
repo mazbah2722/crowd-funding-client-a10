@@ -10,12 +10,14 @@ import AuthLayout from './Layouts/AuthLayout.jsx';
 import Login from './Components/Login.jsx';
 import Register from './Components/Register.jsx';
 import AddNewCampaign from './Components/AddNewCampaign.jsx';
+import ErrorPage from './Components/ErrorPage.jsx';
 
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App></App>,
+    errorElement: <ErrorPage />
   },
   {
     path: "/addNewCampaign",

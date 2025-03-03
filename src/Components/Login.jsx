@@ -24,6 +24,10 @@ const Login = () => {
                             <input name="password" type="password" className="input" placeholder="Password" />
                             <div><a className="link link-hover">Forgot password?</a></div>
                             <button className="btn btn-neutral mt-4">Login</button>
+                            <div className="grid grid-cols-2 gap-2">
+                            <button className="btn">Google</button>
+                            <button className="btn">Git-Hub</button>
+                            </div>
                         </fieldset>
                         <p>You don't have an account, please <Link to='/auth/register' className="text-red-600 font-bold">register</Link> here.</p>
                     </form>
