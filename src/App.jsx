@@ -1,5 +1,7 @@
 
+import { Outlet } from 'react-router-dom'
 import './App.css'
+import MainLayout from './layouts/mainLayout'
 
 function App() {
 
@@ -7,7 +9,11 @@ function App() {
   return (
     <>
       
-      <h1>Vite + React</h1>
+      
+      <div>
+     <MainLayout></MainLayout>
+     
+      </div>
      
     </>
   )
