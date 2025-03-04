@@ -1,14 +1,49 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+
+import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../Provider/AuthProvider';
+import { useContext, useState } from 'react';
+
+
 
 const Register = () => {
+    const navigate = useNavigate();
+    const { createUser, setUser,updateUserProfile } = useContext(AuthContext);
+    const [errorMsg, setErrorMsg] = useState('');
     const handleSubmit = (event) =>{
         event.preventDefault();
         const name = event.target.name.value;
         const photo = event.target.photo.value;
         const email = event.target.email.value;
         const password = event.target.password.value;
-        console.log(name,photo,email, password)
+        console.log(name,photo,email, password);
+          // reset error
+          setErrorMsg('');
+
+          const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z]).{6,}$/;
+  
+          if (!passwordRegex.test(password)) {
+              setErrorMsg('At least one upper case,one lower case and Six character');
+              return;
+          }
+
+        createUser(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                setUser(user);
+                navigate("/");
+                
+                updateUserProfile({displayName:name, photoURL:photo})
+                .then(() =>{
+                    navigate("/");
+                }).catch(err =>{
+                    console.log(err);
+                })
+            })
+            .catch(error => {
+                console.log(error.message);
+                setErrorMsg(error.message);
+            })
     }
     return (
         <div className="hero bg-base-200 min-h-screen">
@@ -28,6 +63,9 @@ const Register = () => {
                             <input name="email" type="email" className="input" placeholder="Email" />
                             <label className="fieldset-label">Password</label>
                             <input name="password" type="password" className="input" placeholder="Password" />
+                            {
+                                errorMsg && <p className="text-center text-red-600 ">{errorMsg}</p>
+                            }
                             
                             <button className="btn btn-neutral mt-4">Login</button>
                         </fieldset>

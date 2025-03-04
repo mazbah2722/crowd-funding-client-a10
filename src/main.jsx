@@ -11,6 +11,9 @@ import Login from './Components/Login.jsx';
 import Register from './Components/Register.jsx';
 import AddNewCampaign from './Components/AddNewCampaign.jsx';
 import ErrorPage from './Components/ErrorPage.jsx';
+import AuthProvider from './Provider/AuthProvider.jsx';
+import Private from './Components/Private.jsx';
+import { ToastContainer } from 'react-toastify';
 
 
 const router = createBrowserRouter([
@@ -21,7 +24,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/addNewCampaign",
-    element: <AddNewCampaign></AddNewCampaign>,
+    element: <Private><AddNewCampaign></AddNewCampaign></Private>,
   },
   {
     path: "auth",
@@ -42,6 +45,9 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+    <AuthProvider>
     <RouterProvider router={router} />
+    <ToastContainer />
+    </AuthProvider>
   </StrictMode>,
 )
