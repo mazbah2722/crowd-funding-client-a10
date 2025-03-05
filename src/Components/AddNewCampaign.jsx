@@ -43,7 +43,7 @@ const AddNewCampaign = () => {
             <section>
                     <Navbar></Navbar>
             </section>
-            <h1 className="my-10 text-4xl font-bold">Add New Campaign</h1>
+           
             <form onSubmit={handleAdd} className="flex flex-col justify-center items-center">
                 <div className=" w-1/2">
                     <div className="grid grid-cols-2 gap-4">

@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom';
 
 const ErrorPage = () => {
     return (
-        <div>
-            <h1>Error</h1>
-            <Link className='btn' to={'/'}>Back Home</Link>
+        <div className="flex flex-col gap-4 items-center justify-center h-screen">
+        <h1 className="text-6xl font-bold text-red-600" >404</h1>
+        <p className="text-4xl font-bold text-red-500">Not Found</p>
+        <Link className="btn btn-neutral " to={"/"}>Back Home</Link>
         </div>
     );
 };

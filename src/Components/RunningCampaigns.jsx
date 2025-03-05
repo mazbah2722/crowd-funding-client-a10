@@ -8,11 +8,11 @@ const RunningCampaigns = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Fetch campaigns from API (Replace with actual API call)
+  
     fetch("http://localhost:5000/campaign")
       .then((res) => res.json())
       .then((data) => {
-        // Filter running campaigns (deadline not passed)
+      
         const runningCampaigns = data.filter(
           (campaign) => new Date(campaign.deadline) > new Date()
         );

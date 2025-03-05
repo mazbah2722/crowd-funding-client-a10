@@ -14,6 +14,9 @@ import ErrorPage from './Components/ErrorPage.jsx';
 import AuthProvider from './Provider/AuthProvider.jsx';
 import Private from './Components/Private.jsx';
 import { ToastContainer } from 'react-toastify';
+import MyCampaign from './Components/MyCampaign.jsx';
+import MyDonation from './Components/MyDonation.jsx';
+import AllCampaign from './Components/AllCampaign.jsx';
 
 
 const router = createBrowserRouter([
@@ -23,8 +26,22 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />
   },
   {
+    path: "/AllCampaign",
+    element:<AllCampaign></AllCampaign>,
+    loader: () => fetch('http://localhost:5000/campaign')
+  },
+  {
     path: "/addNewCampaign",
     element: <Private><AddNewCampaign></AddNewCampaign></Private>,
+  },
+  {
+    path: "/myCampaign",
+    element: <Private><MyCampaign></MyCampaign></Private>,
+    loader: () => fetch('http://localhost:5000/campaign')
+  },
+  {
+    path: "/myDonation",
+    element: <Private><MyDonation></MyDonation></Private>,
   },
   {
     path: "auth",
