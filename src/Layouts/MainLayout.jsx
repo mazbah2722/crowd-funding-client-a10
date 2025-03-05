@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from '../components/navbar';
 import Banner from '../Components/Banner';
 import Footer from '../Components/Footer';
+import RunningCampaigns from '../Components/RunningCampaigns';
 
 
 const MainLayout = () => {
@@ -13,6 +14,9 @@ const MainLayout = () => {
            <main>
                 <section>
                     <Banner ></Banner>
+                </section>
+                <section>
+                    <RunningCampaigns></RunningCampaigns>
                 </section>
            </main>
            <footer>

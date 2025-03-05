@@ -1,4 +1,6 @@
+
 import Navbar from "../Components/Navbar";
+import Swal from 'sweetalert2'
 
 
 const AddNewCampaign = () => {
@@ -16,6 +18,25 @@ const AddNewCampaign = () => {
         const name = form.name.value;
         const newAddCampaign = {image,title,type,description,amount,deadline,email,name}
         console.log(newAddCampaign);
+        fetch('http://localhost:5000/campaign',{
+            method: 'POST',
+            headers:{
+                'content-type' : 'application/json'
+            },
+            body: JSON.stringify(newAddCampaign)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            if(data.insertedId){
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'Campaign Added Successfully',
+                    icon: 'success',
+                    confirmButtonText: 'Cool'
+                  })
+            }
+        })
     }
     return (
         <div className="">
