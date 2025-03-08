@@ -29,7 +29,7 @@ const router = createBrowserRouter([
   {
     path: "/AllCampaign",
     element:<AllCampaign></AllCampaign>,
-    loader: () => fetch('http://localhost:5000/campaign')
+    loader: () => fetch('https://crowd-funding-server-a10.vercel.app/campaign')
   },
   {
     path: "/addNewCampaign",
@@ -38,12 +38,12 @@ const router = createBrowserRouter([
   {
     path: "/myCampaign",
     element: <Private><MyCampaign></MyCampaign></Private>,
-    // loader: () => fetch('http://localhost:5000/campaign')
+    // loader: () => fetch('https://crowd-funding-server-a10.vercel.app/campaign')
   },
   {
     path: '/detailsPage/:id',
     element: <DetailsPage></DetailsPage>,
-    loader: ({params}) => fetch(`http://localhost:5000/campaign/${params.id}`)
+    loader: ({params}) => fetch(`https://crowd-funding-server-a10.vercel.app/campaign/${params.id}`)
   },
   {
     path: "/myDonation",
