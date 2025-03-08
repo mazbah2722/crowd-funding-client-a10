@@ -17,6 +17,7 @@ import { ToastContainer } from 'react-toastify';
 import MyCampaign from './Components/MyCampaign.jsx';
 import MyDonation from './Components/MyDonation.jsx';
 import AllCampaign from './Components/AllCampaign.jsx';
+import DetailsPage from './Pages/DetailsPage.jsx';
 
 
 const router = createBrowserRouter([
@@ -37,7 +38,12 @@ const router = createBrowserRouter([
   {
     path: "/myCampaign",
     element: <Private><MyCampaign></MyCampaign></Private>,
-    loader: () => fetch('http://localhost:5000/campaign')
+    // loader: () => fetch('http://localhost:5000/campaign')
+  },
+  {
+    path: '/detailsPage/:id',
+    element: <DetailsPage></DetailsPage>,
+    loader: ({params}) => fetch(`http://localhost:5000/campaign/${params.id}`)
   },
   {
     path: "/myDonation",

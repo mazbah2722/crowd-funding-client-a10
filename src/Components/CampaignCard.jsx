@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 
 const CampaignCard = ({campaign}) => {
@@ -13,7 +14,7 @@ const CampaignCard = ({campaign}) => {
     <h2 className="card-title">{campaign.title}</h2>
     <p>{campaign.description}</p>
     <div className="card-actions ">
-      <button className="btn btn-neutral">See More</button>
+      <Link to={`/detailsPage/${campaign._id}`} className="btn btn-neutral">See More</Link>
     </div>
   </div>
 </div>
